@@ -805,12 +805,28 @@ body.dark-mode .moon-icon {
   font-size: 1rem;
   outline: none;
   transition: all 0.3s;
+  color: var(--text-primary);
+}
+
+.elegant-form input::placeholder,
+.elegant-form textarea::placeholder {
+  color: var(--text-muted);
 }
 
 .elegant-form input:focus,
 .elegant-form textarea:focus {
   box-shadow: 0 15px 50px rgba(90, 141, 128, 0.15);
   border-color: rgba(90, 141, 128, 0.3);
+}
+
+body.dark-mode .elegant-form input,
+body.dark-mode .elegant-form textarea {
+  color: #FFFFFF;
+}
+
+body.dark-mode .elegant-form input::placeholder,
+body.dark-mode .elegant-form textarea::placeholder {
+  color: #B0B0B0;
 }
 
 .elegant-form button {
