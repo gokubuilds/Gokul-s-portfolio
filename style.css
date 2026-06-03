@@ -95,20 +95,21 @@ body.dark-mode .invert-dark {
 @media(min-width: 768px) {
   .snap-section {
     padding: 2rem;
-    padding-top: 5rem;
+    padding-top: 3.5rem;
   }
 }
 
 @media(min-width: 1200px) {
   .snap-section {
     padding: 3rem 2rem;
-    padding-top: 5rem;
+    padding-top: 3.5rem;
   }
 }
 
 /* Header */
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
   width: 100%;
   padding: 1rem 1.2rem;
   z-index: 50;
@@ -118,7 +119,7 @@ body.dark-mode .invert-dark {
 
 @media(min-width: 640px) {
   .header {
-    position: relative;
+    position: fixed;
   }
 }
 
