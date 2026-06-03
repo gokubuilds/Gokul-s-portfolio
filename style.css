@@ -80,7 +80,7 @@ body.dark-mode .invert-dark {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   position: relative;
   max-width: 100vw;
   overflow: visible;
@@ -95,19 +95,20 @@ body.dark-mode .invert-dark {
 @media(min-width: 768px) {
   .snap-section {
     padding: 2rem;
+    padding-top: 5rem;
   }
 }
 
 @media(min-width: 1200px) {
   .snap-section {
     padding: 3rem 2rem;
+    padding-top: 5rem;
   }
 }
 
 /* Header */
 .header {
-  position: fixed;
-  top: 0;
+  position: relative;
   width: 100%;
   padding: 1rem 1.2rem;
   z-index: 50;
@@ -115,8 +116,16 @@ body.dark-mode .invert-dark {
   transition: background 0.3s, backdrop-filter 0.3s, padding 0.3s, border-bottom 0.3s;
 }
 
+@media(min-width: 640px) {
+  .header {
+    position: relative;
+  }
+}
+
 @media(min-width: 768px) {
   .header {
+    position: fixed;
+    top: 0;
     padding: 1.5rem 2rem;
   }
 }
@@ -140,45 +149,16 @@ body.dark-mode .header.scrolled {
   justify-content: space-between;
   align-items: center;
   pointer-events: auto;
+  gap: 1.5rem;
 }
 
-.social-nav-links {
-  display: flex;
-  gap: 0.6rem;
-  align-items: center;
-}
-
-@media(min-width: 640px) {
-  .social-nav-links {
-    gap: 1rem;
-  }
-}
-
-@media(min-width: 768px) {
-  .social-nav-links {
-    gap: 1.5rem;
-  }
-}
-
-.nav-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.6;
-  transition: opacity 0.3s;
-  min-width: 28px;
-  min-height: 28px;
-}
-
-@media(min-width: 768px) {
-  .nav-icon {
-    min-width: 32px;
-    min-height: 32px;
-  }
-}
-
-.nav-icon:hover {
-  opacity: 1;
+.nav-brand {
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  transition: color 0.5s ease;
 }
 
 .nav-text {
@@ -300,6 +280,7 @@ body.dark-mode .header.scrolled {
   text-align: center;
   margin-left: 16px;
   font-weight: 500;
+  line-height: 1.6;
 }
 
 @media(min-width: 640px) {
@@ -452,9 +433,10 @@ body.dark-mode .header.scrolled {
   background: rgba(0,0,0,0.05);
   position: relative;
   overflow: hidden;
-  transition: background 0.5s;
+  transition: background 0.5s ease, transform 0.3s ease;
   flex-shrink: 0;
   margin-left: auto;
+  cursor: pointer;
 }
 
 @media(min-width: 640px) {
@@ -471,29 +453,43 @@ body.dark-mode .header.scrolled {
   }
 }
 
+.theme-icon-wrapper:hover {
+  transform: scale(1.1);
+}
+
 body.dark-mode .theme-icon-wrapper {
   background: rgba(255,255,255,0.1);
 }
 
 .sun-icon, .moon-icon {
   position: absolute;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--text-primary);
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 .moon-icon {
-  transform: translateY(-20px) rotate(-90deg);
   opacity: 0;
+  transform: rotate(-90deg) scale(0.7);
 }
 
 body.dark-mode .sun-icon {
-  transform: translateY(20px) rotate(90deg);
   opacity: 0;
+  transform: rotate(90deg) scale(0.7);
 }
 
 body.dark-mode .moon-icon {
-  transform: translateY(0) rotate(0);
   opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 .minimal-profile-img {
@@ -729,6 +725,7 @@ body.dark-mode .moon-icon {
   color: var(--text-primary);
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
+  text-align: center;
 }
 
 .about-right {
@@ -785,6 +782,7 @@ body.dark-mode .moon-icon {
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 2px;
+  text-align: center;
 }
 
 @media(min-width: 640px) {
