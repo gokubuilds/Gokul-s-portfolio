@@ -1,5 +1,6 @@
 import os
 from langchain_groq import ChatGroq
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_ollama import OllamaEmbeddings
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -14,11 +15,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-KNOWLEDGE_BASE_DIR = r"knowledge_base/data.json"
+KNOWLEDGE_BASE_DIR = r"knowledge_base\data.json"
 CHROMA_DB_DIR = "chroma_db"
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
-
-print("GROQ KEY FOUND:", bool(os.getenv("GROQ_API_KEY")))
 
 def initialize_rag():
     # 1. Load Documents
@@ -44,7 +43,10 @@ def initialize_rag():
 
     # 3. Create Embeddings & VectorStore
     # We use HuggingFace embeddings which run locally and are free. 
-    embeddings = OllamaEmbeddings(model="all-minilm:l6-v2")
+    # embeddings = OllamaEmbeddings(model="all-minilm:l6-v2")
+    embeddings = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
+)
     vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings, persist_directory=CHROMA_DB_DIR)
     
     # 4. Setup Retriever
@@ -58,9 +60,11 @@ def initialize_rag():
     system_prompt = (
         "You are a helpful AI assistant representing Gokul Soundarapandian on his portfolio website. "
         "Use the following pieces of retrieved context to answer the user's question. "
-        "If you don't know the answer, just say that you don't know or ask the user to contact Gokul directly. "
+        "If you don't know the answer, just say that you don't know or ask the user to contact Gokul directly and return the email id:gokulsoundarapandian22@gmail.com. "
+        "return the answers in a structured format ."
         "Keep the answers concise and professional.\n\n"
         "{context}"
+
     )
 
     prompt = ChatPromptTemplate.from_messages([
@@ -71,7 +75,7 @@ def initialize_rag():
     chain = RetrievalQA.from_chain_type(
             llm=llm,
             chain_type="stuff",
-            retriever=vectorstore.as_retriever(search_kwargs={"k": 4}),
+            retriever=vectorstore.as_retriever(search_kwargs={"k": 2}),
             chain_type_kwargs={"prompt": prompt},
             return_source_documents=False,
         )
@@ -88,6 +92,5 @@ def get_rag_chain():
             rag_chain_instance = initialize_rag()
         except Exception as e:
             print(f"Error initializing RAG: {e}")
-            print(str(e))
             return None
     return rag_chain_instance
