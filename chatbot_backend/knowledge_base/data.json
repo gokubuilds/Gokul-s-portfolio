@@ -2,7 +2,7 @@
   "name": "Gokul Soundarapandian",
   "location": "Chennai, India",
   "contact": {
-    "phone": "+91 90030 99388",
+    "phone_number": "+91 90030 99388",
     "email": "gokulsoundarapandian22@gmail.com",
     "linkedin": "linkedin.com/in/gokul-soundarapandian",
     "github": "github.com/gokubuilds"
@@ -38,7 +38,7 @@
       "Video Editing"
     ]
   },
-  "experience": [
+  "internship_experience": [
     {
       "role": "GenAI Intern",
       "company": "Maarga Systems",
