@@ -18,6 +18,8 @@ KNOWLEDGE_BASE_DIR = r"C:\Users\gokul\gokul'sportfolio\chatbot_backend\knowledge
 CHROMA_DB_DIR = "chroma_db"
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
+print("GROQ KEY FOUND:", bool(os.getenv("GROQ_API_KEY")))
+
 def initialize_rag():
     # 1. Load Documents
     # loader = PyPDFLoader(KNOWLEDGE_BASE_DIR)
@@ -86,5 +88,6 @@ def get_rag_chain():
             rag_chain_instance = initialize_rag()
         except Exception as e:
             print(f"Error initializing RAG: {e}")
+            print(str(e))
             return None
     return rag_chain_instance
