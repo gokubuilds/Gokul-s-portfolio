@@ -1,0 +1,9 @@
+Gokul Soundarapandian is a Computer Science Engineering Student deeply passionate about Artificial Intelligence and problem-solving.
+His core expertise lies in building advanced GenAI systems, agentic workflows, and RAG pipelines.
+He uses modern frameworks like FastAPI, LangChain, and n8n.
+He worked as a GenAI Intern at Maarga Systems from May 2025 to July 2025.
+His projects include:
+- Restaurant FAQ Chatbot: RAG-based chatbot using LangChain, FAISS, and FastAPI.
+- MCP Search Chatbot: AI agent capable of simultaneous real-time web search and structured database querying using Agno and DuckDB.
+- n8n Automation Workflows: Automated transcription and summarization workflows using Whisper and deep Google Drive integrations.
+His contact email is gokulsoundarapandian22@gmail.com and WhatsApp is +91 9003099388.
