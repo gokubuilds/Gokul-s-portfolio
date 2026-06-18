@@ -8,51 +8,6 @@ const EMAILJS_CONFIG = {
 
 const MOBILE_NAV_CLOSE_DELAY = 2000;
 
-// Typewriter Effect for Hero Section
-const phrases = [
-    'Gen-AI Enthusiast.',
-    'Aspiring AI Engineer.',
-    'Video Editor.'
-];
-
-let phraseIndex = 0;
-let letterIndex = 0;
-let currentText = '';
-let isDeleting = false;
-const typewriterElement = document.getElementById('typewriter');
-
-function type() {
-    if (!typewriterElement) return;
-
-    const currentPhrase = phrases[phraseIndex];
-
-    if (isDeleting) {
-        currentText = currentPhrase.substring(0, letterIndex - 1);
-        letterIndex--;
-    } else {
-        currentText = currentPhrase.substring(0, letterIndex + 1);
-        letterIndex++;
-    }
-
-    typewriterElement.textContent = currentText;
-
-    let typeSpeed = isDeleting ? 50 : 100;
-
-    if (!isDeleting && letterIndex === currentPhrase.length) {
-        typeSpeed = 2500;
-        isDeleting = true;
-    } else if (isDeleting && letterIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        typeSpeed = 500;
-    }
-
-    setTimeout(type, typeSpeed);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(type, 1000);
-});
 
 // Theme Toggle Logic
 const themeToggleBtn = document.getElementById('theme-toggle');
