@@ -3,9 +3,8 @@ uvicorn
 langchain
 langchain-groq
 langchain-community
-langchain-huggingface
+langchain-google-genai
 chromadb
-sentence-transformers
 pydantic
 jq
 python-dotenv
