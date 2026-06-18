@@ -1057,7 +1057,11 @@ body.dark-mode .edu-divider {
   flex-shrink: 0;
 }
 
-.info-item p { font-weight: 500; font-size: 0.98rem; word-break: break-word; }
+.info-item p {
+  font-weight: 500;
+  font-size: clamp(0.78rem, 3.2vw, 0.98rem);
+  word-break: break-all;
+}
 
 .social-links { display: flex; gap: 1.2rem; margin-top: 2rem; flex-wrap: wrap; }
 
@@ -1358,6 +1362,8 @@ body.dark-mode .footer {
     box-shadow: 0 4px 15px rgba(90, 141, 128, 0.25);
   }
   .footer {
-    margin-top: 3rem;
+    margin-top: 4rem;
+    padding-bottom: 5rem;
+    text-align: center;
   }
 }
