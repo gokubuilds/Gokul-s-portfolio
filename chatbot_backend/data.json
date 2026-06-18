@@ -1,0 +1,113 @@
+{
+  "name": "Gokul Soundarapandian",
+  "location": "Chennai, India",
+  "contact": {
+    "phone_number": "+91 90030 99388",
+    "email": "gokulsoundarapandian22@gmail.com",
+    "linkedin": "linkedin.com/in/gokul-soundarapandian",
+    "github": "github.com/gokubuilds"
+  },
+  "professional_summary": "Computer Science undergraduate with hands-on experience in GenAI systems, RAG pipelines, and automation workflows. Skilled in building agent-based solutions and deploying functional AI prototypes for real-world applications.",
+  "skills": {
+    "languages": [
+      "Python",
+      "C",
+      "SQL",
+      "Java"
+    ],
+    "ai_ml": [
+      "RAG",
+      "Embeddings",
+      "LLM Integration",
+      "Model Context Protocol (MCP)"
+    ],
+    "tools": [
+      "LangChain",
+      "Agno",
+      "Streamlit",
+      "FastAPI",
+      "Qdrant",
+      "Ollama",
+      "Docker",
+      "Git",
+      "n8n"
+    ],
+    "creative": [
+      "Photoshop",
+      "After Effects",
+      "Video Editing"
+    ]
+  },
+  "internship_experience": [
+    {
+      "role": "GenAI Intern",
+      "company": "Maarga Systems",
+      "duration": "May 2025 - July 2025",
+      "responsibilities": [
+        "Built RAG pipelines that significantly improved retrieval accuracy for complex knowledge queries.",
+        "Developed multi-agent workflows for automation and enterprise data processing tasks.",
+        "Integrated transcription services and deployed production-ready APIs using FastAPI and Docker."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Restaurant FAQ Chatbot",
+      "category": "Major Project",
+      "tech_stack": [
+        "LangChain",
+        "FAISS",
+        "SQLite",
+        "Streamlit",
+        "Ollama",
+        "FastAPI",
+        "Python"
+      ],
+      "description": "Developed a RAG-based support system enabling customers to query menus and live offers, featuring an admin panel for dynamic knowledge base management via file and text uploads.",
+      "github": "https://github.com/gokubuilds/restaurant_faq_bot"
+    },
+    {
+      "name": "MCP Search Chatbot",
+      "category": "Major Project",
+      "tech_stack": [
+        "Agno",
+        "Streamlit",
+        "DuckDB",
+        "Web Search MCP",
+        "Python"
+      ],
+      "description": "Advanced AI agent leveraging Model Context Protocol (MCP) to execute simultaneous real-time web searches and structured database queries, delivering enriched, context-aware responses."
+    },
+    {
+      "name": "n8n Automation Workflows",
+      "category": "Mini Project",
+      "tech_stack": [
+        "n8n",
+        "OpenAI Whisper",
+        "Google Drive API"
+      ],
+      "description": "Designed integrated automation pipelines: a Google Drive-monitored transcription system and a multi-modal chatbot that transcribes and summarizes audio files into concise key points."
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.E. Computer Science and Engineering",
+      "institution": "Prince Dr. K. Vasudevan College of Engineering and Technology",
+      "duration": "2023 - 2027",
+      "gpa": "8.1/10"
+    },
+    {
+      "qualification": "Senior Secondary (CBSE)",
+      "institution": "Prince Srivari Senior Secondary School",
+      "year": "2023",
+      "class_xii": "86.4%",
+      "class_x": "89.2%"
+    }
+  ],
+  "achievements_and_activities": [
+    "Team Leader - Smart India Hackathon (Internal Round)",
+    "Participant - Google Solution Challenge AI Agents Workshop",
+    "Freelance Video Editor and Graphic Designer",
+    "Interests: GenAI Automation, AI Engineering, Agentic Workflows"
+  ]
+}
