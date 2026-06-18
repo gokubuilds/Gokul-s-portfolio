@@ -1,4 +1,4 @@
-const CHATBOT_API_URL = 'http://localhost:8000/chat';
+const CHATBOT_API_URL = 'https://gokul-s-portfolio.onrender.com/chat';
 
 const EMAILJS_CONFIG = {
     serviceId: 'service_azcyx5n',
