@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-KNOWLEDGE_BASE_DIR = r"C:\Users\gokul\gokul'sportfolio\chatbot_backend\knowledge_base\data.json"
+KNOWLEDGE_BASE_DIR = r"knowledge_base\data.json"
 CHROMA_DB_DIR = "chroma_db"
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
