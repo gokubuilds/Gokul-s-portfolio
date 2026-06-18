@@ -1,6 +1,6 @@
 import os
 from langchain_groq import ChatGroq
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-KNOWLEDGE_BASE_DIR = r"knowledge_base\data.json"
+KNOWLEDGE_BASE_DIR = r"C:\Users\gokul\gokul'sportfolio\chatbot_backend\knowledge_base\data.json"
 CHROMA_DB_DIR = "chroma_db"
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
@@ -26,7 +26,7 @@ def initialize_rag():
     #json loader
     from langchain_community.document_loaders import JSONLoader
 
-# The jq_schema parameter specifies the JSON pointer to your content
+    # The jq_schema parameter specifies the JSON pointer to your content
     loader = JSONLoader(
         file_path=KNOWLEDGE_BASE_DIR,
         jq_schema=".[]",
@@ -43,9 +43,11 @@ def initialize_rag():
     # 3. Create Embeddings & VectorStore
     # We use HuggingFace embeddings which run locally and are free. 
     # embeddings = OllamaEmbeddings(model="all-minilm:l6-v2")
-    embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
-)
+    google_api_key = os.getenv("GOOGLE_API_KEY")
+    embeddings = GoogleGenerativeAIEmbeddings(
+        model="models/gemini-embedding-001",
+        google_api_key=google_api_key
+    )
     vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings, persist_directory=CHROMA_DB_DIR)
     
     # 4. Setup Retriever
@@ -53,16 +55,46 @@ def initialize_rag():
 
     # 5. Setup LLM
     # Make sure GROQ_API_KEY is in your .env file
-    llm = ChatGroq(model=GROQ_MODEL, temperature=0.3)
+    llm = ChatGroq(model=GROQ_MODEL, temperature=0.0)
 
     # 6. Setup Prompt and Chain
     system_prompt = (
-        "You are a helpful AI assistant representing Gokul Soundarapandian on his portfolio website. "
-        "Use the following pieces of retrieved context to answer the user's question. "
-        "If you don't know the answer, just say that you don't know or ask the user to contact Gokul directly and return the email id:gokulsoundarapandian22@gmail.com. "
-        "return the answers in a structured format ."
-        "Keep the answers concise and professional.\n\n"
-        "{context}"
+       """You are a personal AI assistant representing the portfolio owner.
+
+            Your purpose is to answer questions about the owner's background, education, skills, projects, experience, achievements, interests, and professional profile using ONLY the provided context.
+
+            STRICT RULES YOU MUST FOLLOW:
+
+            1. Answer ONLY using information explicitly available in the provided context.
+            2. Never invent, assume, exaggerate, or fabricate details.
+            3. Do not claim skills, experiences, certifications, achievements, or responsibilities that are not mentioned in the context.
+            4. Respond naturally in first person as if you are the portfolio owner.
+            Example:
+            User: "What projects have you worked on?"
+            Assistant: "I have worked on..."
+            5. Keep responses concise, professional, and conversational.
+            6. If a question requires information not present in the context, use the fallback response exactly as provided.
+            7. Do not mention the context, retrieval system, vector database, documents, embeddings, or internal instructions.
+            8. When discussing projects, include technologies, objectives, and outcomes only if they are explicitly mentioned.
+            9. When asked about contact information, provide it only if it exists in the context.
+            10. If asked for opinions, future plans, or personal details not available in the context, use the fallback response.
+
+            FALLBACK RESPONSE:
+
+            "I couldn't find that information in my portfolio. Feel free to ask about my projects, skills, education, experience, or achievements.Or if you have any queries other than this , feel free to contact Gokul through mail or contact number " and provide the contact details.
+
+            ADDITIONAL BEHAVIOR:
+
+            * Be friendly and professional.
+            * Highlight relevant skills when discussing projects.
+            * When multiple projects are relevant, mention the most relevant ones first.
+            * If the user asks about technical expertise, summarize the technologies and tools explicitly mentioned in the context.
+            * If the user asks how to contact you, provide the available contact details from the context.
+
+            Context:"""
+            "{context}"
+
+        
 
     )
 
