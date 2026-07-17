@@ -209,16 +209,16 @@
             <div class="horizontal-scroll projects-scroll">
                 <div class="scroll-card project-card">
                     <h4>Resto-Bot</h4>
-                    <p>Developed a RAG-based support system enabling customers to query menus and live offers, achieving 80% retrieval accuracy. Built backend logic in Python with FastAPI, featuring an admin panel for dynamic knowledge base management.</p>
+                    <p>Developed a RAG-based support system enabling customers to query menus and live offers, achieving 80% retrieval accuracy with a response latency range of 1–1.5 seconds. Built backend logic in Python with FastAPI, featuring an admin panel for dynamic knowledge base management via file and text uploads.</p>
                     <div class="tech-tags">
-                        <span>LangChain</span><span>FAISS</span><span>FastAPI</span><span>Streamlit</span><span>Ollama</span>
+                        <span>LangChain</span><span>FAISS</span><span>FastAPI</span><span>Streamlit</span><span>Groq API</span>
                     </div>
                 </div>
                 <div class="scroll-card project-card">
                     <h4>Schemora.AI</h4>
-                    <p>AI-powered test data generation tool that parses SQL DDL schemas by understanding them semantically and generates up to 10,000 referentially consistent rows per table. Leveraged Claude API for intelligent column-to-data-type mapping.</p>
+                    <p>An AI-powered tool that semantically parses SQL DDL schemas to generate up to 10,000 referentially consistent rows per table, resolving foreign key dependencies through topological sorting. Leverages an LLM API for intelligent column-to-data-type mapping, paired with a structure-hashed LRU cache that eliminates redundant LLM calls on unchanged schemas — reducing API costs by up to 90% on repeated runs. Also supports natural language input for schema and data generation requests</p>
                     <div class="tech-tags">
-                        <span>Python</span><span>FastAPI</span><span>Claude API</span><span>Faker</span><span>JS</span>
+                        <span>Python</span><span>FastAPI</span><span>Groq API</span><span>Faker</span><span>JS</span>
                     </div>
                 </div>
                 <div class="scroll-card project-card">
@@ -282,7 +282,7 @@
         </div>
         <div id="chatbot-messages" class="chatbot-messages">
             <div class="chat-message bot-message">
-                <p>Hello! I am Gokul's AI Assistant. How can I help you today?</p>
+                <p>Hello! How can I help you today?</p>
             </div>
         </div>
         <div class="chatbot-input-area">
