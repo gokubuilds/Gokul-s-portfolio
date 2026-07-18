@@ -575,6 +575,51 @@ body.dark-mode .moon-icon {
   opacity: 0.7;
 }
 
+/* ── Download CV Button ── */
+.btn-download-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 2rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 50px;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+  align-self: flex-start;
+}
+
+.btn-download-cv svg {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-download-cv:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(90, 141, 128, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-download-cv:hover svg {
+  transform: translateY(3px);
+}
+
+.btn-download-cv:active {
+  transform: translateY(0);
+}
+
 .hero-minimal-right {
   flex: 0.8;
   display: flex;
